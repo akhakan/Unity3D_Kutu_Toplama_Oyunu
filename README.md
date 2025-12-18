@@ -4,6 +4,12 @@
 
 Bu proje, Unity 3D kullanılarak geliştirilmiş basit ve eğlenceli bir kutu toplama oyunudur. Oyuncular karakterlerini hareket ettirerek sahada rastgele dağılmış renkli kutuları toplar ve puan kazanırlar. Her renk farklı puan değerine sahiptir.
 
+## 🖼️ Oyun Görselleri
+
+![Oyun Görüntüsü 1](ReadMeImages/kt1.jpg)
+![Oyun Görüntüsü 2](ReadMeImages/kt2.jpg)
+![Oyun Görüntüsü 3](ReadMeImages/kt3.jpg)
+
 ## ✨ Özellikler
 
 - **3D Karakter Kontrolü**: WASD veya ok tuşları ile akıcı hareket
