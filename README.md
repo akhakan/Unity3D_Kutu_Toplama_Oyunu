@@ -152,8 +152,8 @@ public class CollectibleBox : MonoBehaviour
 ```
 
 **📌 Önemli Noktalar:**
-- `scoreValue`: Kutu toplandığında kazanılacak puan miktarı
-- `boxColor`: Kutunun görsel rengi
+- `ScoreValue`: Kutu toplandığında kazanılacak puan miktarı
+- `BoxColor`: Kutunun görsel rengi
 - `Start()` metodunda Renderer komponenti üzerinden malzeme rengini ayarlar
 
 ---
