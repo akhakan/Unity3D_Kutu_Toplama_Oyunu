@@ -158,7 +158,7 @@ public class CollectibleBox : MonoBehaviour
 ### 🎲 BoxSpawner.cs
 
 - Start metodunda otomatik spawn
-- Configurable spawn alanı (-10 ile 10 arası)
+- Configurable spawn alanı (-20 ile 20 arası)
 - Prefab instantiation
 
 🎯 **Amaç:** Oyun başladığında belirlenen sayıda rastgele konumlarda, rastgele renk ve puan değerlerine sahip kutular oluşturur.
