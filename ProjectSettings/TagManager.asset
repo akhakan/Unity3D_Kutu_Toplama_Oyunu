@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Collectible
+  - BoxRed
+  - BoxBlue
+  - BoxGreen
+  - BoxYellow
+  - BoxMagenta
   layers:
   - Default
   - TransparentFX

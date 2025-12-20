@@ -9,7 +9,7 @@ public class BoxSpawner : MonoBehaviour
     // Renk ve puan değerleri
     private Color[] colors = { Color.red, Color.blue, Color.green, Color.yellow, Color.magenta };
     private int[] scoreValues = { 10, 20, 30, 50, 100 };
-
+   
     void Start()
     {
         SpawnBoxes();
@@ -40,9 +40,9 @@ public class BoxSpawner : MonoBehaviour
             // Eklenen objeler BoxSpawner(parent) GameObject'in child'ı olur
             // box değişkenine referansı kaydeder
             // Sonraki satırlarda box.GetComponent<CollectibleBox>() ile erişim sağlar
-            GameObject box = Instantiate(boxPrefab, randomPosition, Quaternion.identity,transform);
+            GameObject box = Instantiate(boxPrefab, randomPosition, Quaternion.identity, transform);
 
-            
+
 
             // Rastgele renk ve puan değeri ata
             int randomIndex = Random.Range(0, colors.Length);
@@ -52,6 +52,7 @@ public class BoxSpawner : MonoBehaviour
             {
                 collectible.BoxColor = colors[randomIndex];
                 collectible.ScoreValue = scoreValues[randomIndex];
+                collectible.BoxType = (BoxType)randomIndex;
             }
         }
     }

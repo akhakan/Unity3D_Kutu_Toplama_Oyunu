@@ -4,7 +4,7 @@ public class AutoDestroy : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f);  // Efekti temizle
     }
 
 }

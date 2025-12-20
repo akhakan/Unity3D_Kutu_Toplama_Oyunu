@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject explosionPrefab;
+    [Header("Player Settings")]
 
     [SerializeField] private Transform _orientationTransform;
 
@@ -14,10 +14,31 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _movementSpeed = 10f;
 
+
+    [Header("Effect Settings")]
+
+    [SerializeField] private GameObject explosionPrefab;
+
+
+    [Header("Audio Settings")]
+
+    [SerializeField] private AudioClip hitSoundRed;
+    [SerializeField] private AudioClip hitSoundBlue;
+    [SerializeField] private AudioClip hitSoundGreen;
+    [SerializeField] private AudioClip hitSoundYellow;
+    [SerializeField] private AudioClip hitSoundMagenta;
+
+    private AudioSource audioSource;
+
+
+
     private void Awake()
     {
         _playerRigidbody = GetComponent<Rigidbody>();
         _playerRigidbody.freezeRotation = true;
+
+        // Main Camera'dan AudioSource al
+        audioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -38,24 +59,34 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Collectible"))
         {
+
             CollectibleBox box = other.GetComponent<CollectibleBox>();
             if (box != null)
             {
                 ScoreManager.instance.AddScore(box.ScoreValue);
-                // Patlama efekti(iste�e ba�l�)
-                Explode(other);
 
+                // Patlama ve ses efekti(isteğe bağlı)
+                Explode(box, other);
+
+                // 🗑 YOK ET
                 Destroy(other.gameObject);
             }
         }
     }
 
-    void Explode(Collider other)
+
+    void Explode(CollectibleBox box,Collider other)
     {
+        // 🎨 Kutunun rengini al
         Renderer rend = other.GetComponent<Renderer>();
         Color boxColor = rend.material.color;
         boxColor *= Random.Range(0.85f, 1.15f);
+        
+        // 🔊🎧 Renge göre ses seç
+        AudioClip selectedSound = GetSoundByType(box);
+        audioSource.PlayOneShot(selectedSound);
 
+        // 💥 PATLAMA
         GameObject explosion = Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
 
         ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
@@ -63,4 +94,18 @@ public class PlayerController : MonoBehaviour
         main.startColor = boxColor;
     }
 
+    AudioClip GetSoundByType(CollectibleBox box)
+    {
+        switch (box.BoxType)
+        {
+            case BoxType.Red: return hitSoundRed;
+            case BoxType.Blue: return hitSoundBlue;
+            case BoxType.Green: return hitSoundGreen;
+            case BoxType.Yellow: return hitSoundYellow;
+            case BoxType.Magenta: return hitSoundMagenta;
+        }
+        return hitSoundRed;
+    }
+
 }
+
