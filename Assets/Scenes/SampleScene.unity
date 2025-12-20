@@ -993,6 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f23c71c88ea98d438f5077de33917f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 477191655164701507, guid: 0a45943256b7bce468111b201774f1be, type: 3}
   _orientationTransform: {fileID: 237156252}
   _movementSpeed: 10
 --- !u!54 &1550138430
