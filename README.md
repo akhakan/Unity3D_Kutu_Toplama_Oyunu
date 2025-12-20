@@ -404,14 +404,14 @@ public class ScoreManager : MonoBehaviour
 
 ```
 
-### Animasyonun İşleyişi:
+#### Animasyonun İşleyişi:
 1. ⏱️ 0.5 saniye boyunca çalışır
 2. 🔢 Her frame'de ara değer hesaplar (Lerp)
 3. 📱 Ekranı günceller
 4. ⏸️ yield return null ile bir sonraki frame'i bekler
 5. ✅ Son değeri garantilemek için tekrar yazar
 
-### Kullanıcı Tarafından Görünen:
+#### Kullanıcı Tarafından Görünen:
 ```
 Skor: 100 → 110 → 125 → 140 → 150 (Yumuşak geçiş!)
 ```
