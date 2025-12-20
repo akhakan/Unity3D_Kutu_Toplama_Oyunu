@@ -161,6 +161,7 @@ TextMeshPro UI
 🎯 **Amaç:** Her kutunun kendine özgü renk ve puan değerini saklar. Kutu oluşturulduğunda atanan renge göre materyalini değiştirir.
 
 🧩 **Kod:**
+
 ```csharp
 using UnityEngine;
 
@@ -172,12 +173,13 @@ public class CollectibleBox : MonoBehaviour
     void Start()
     {
         // Kutunun rengini ata
-        GetComponent().material.color = BoxColor;
+        GetComponent<Renderer>().material.color = BoxColor;
     }
 }
 ```
 
 **📌 Önemli Noktalar:**
+
 - `ScoreValue`: Kutu toplandığında kazanılacak puan miktarı
 - `BoxColor`: Kutunun görsel rengi
 - `Start()` metodunda Renderer komponenti üzerinden malzeme rengini ayarlar
