@@ -58,6 +58,8 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Skor: " + totalScore;
     }
 
+
+    // AnimateScore(100,150): Puan artışını animasyonlu gösterir
     //                 Başlangıç skoru  Hedef skor
     //                             ↓         ↓
     IEnumerator AnimateScore(int start, int end)
