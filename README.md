@@ -371,6 +371,7 @@ public class ScoreManager : MonoBehaviour
     // Başka Script'ten şu şekilde çağrılır : ScoreManager.instance.AddScore(scoreValue);
     public void AddScore(int points)
     {
+        // ✨ Animasyon uygulama (Bonus):
         StartCoroutine(AnimateScore(totalScore, totalScore + points));
         totalScore += points;
         UpdateScoreUI();
@@ -382,6 +383,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Skor: " + totalScore;
     }
 
+    // ✨ Animasyonlu kısmı (Bonus):
     IEnumerator AnimateScore(int start, int end)
     {
         float duration = 0.5f;
