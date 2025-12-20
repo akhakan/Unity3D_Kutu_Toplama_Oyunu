@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject explosionPrefab;
+
     [SerializeField] private Transform _orientationTransform; 
     
     private Rigidbody _playerRigidbody; 
@@ -40,6 +42,22 @@ public class PlayerController : MonoBehaviour
             if (box != null)
             {
                 ScoreManager.instance.AddScore(box.ScoreValue);
+
+                Renderer rend = box.GetComponent<Renderer>();
+                Color boxColor = rend.material.color;
+                boxColor *= Random.Range(0.85f, 1.15f);
+
+                GameObject explosion = Instantiate(explosionPrefab, box.transform.position, Quaternion.identity);
+
+                ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+                var main = ps.main;
+                main.startColor = boxColor;
+
+                // Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
+                
+                
+                
+                
                 Destroy(other.gameObject);
             }
         }

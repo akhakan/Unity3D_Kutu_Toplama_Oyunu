@@ -481,7 +481,7 @@ public class PlayerController : MonoBehaviour
         // Toplanabilir kutu ile temas kontrolü
         if (other.CompareTag("Collectible"))
         {
-            CollectibleBox box = other.GetComponent();
+             CollectibleBox box = other.GetComponent<CollectibleBox>();
             
             if (box != null)
             {
