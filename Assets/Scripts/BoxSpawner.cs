@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
 {
@@ -6,7 +6,7 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] private int numberOfBoxes = 20;
     [SerializeField] private float spawnRange = 20f;
 
-    // Renk ve puan de�erleri
+    // Renk ve puan değerleri
     private Color[] colors = { Color.red, Color.blue, Color.green, Color.yellow, Color.magenta };
     private int[] scoreValues = { 10, 20, 30, 50, 100 };
 
@@ -25,9 +25,25 @@ public class BoxSpawner : MonoBehaviour
                 Random.Range(-spawnRange, spawnRange)
             );
 
-            GameObject box = Instantiate(boxPrefab, randomPosition, Quaternion.identity);
+            // Instantiate, Unity'de çalışma zamanında (runtime) yeni obje kopyaları oluşturmak için kullanılan temel bir metoddur.
+            // Bir şablondan (Prefab veya mevcut GameObject) yeni bir kopya oluşturur ve sahneye ekler.
+            // boxPrefab → Kopyalanacak şablon
+            // randomPosition → Yeni objenin konumu(Vector3)
+            // Quaternion.identity → Rotasyon(0, 0, 0 açıları = döndürme yok)
+            // Açı verilmek istenirse : Quaternion.Euler(0, 45, 0), // 45° Y ekseninde dönük
+            // transform: Yeni objelerin, bu script'in bağlı olduğu objenin child'ı olur.             
+            // Özetle:
+            // boxPrefab şablonundan yeni bir kutu kopyalar
+            // randomPosition konumuna yerleştirir
+            // Rotasyon vermez(düz durur)
+            // Eklenen objeler BoxSpawner(parent) GameObject'in child'ı olur
+            // box değişkenine referansı kaydeder
+            // Sonraki satırlarda box.GetComponent<CollectibleBox>() ile erişim sağlar
+            GameObject box = Instantiate(boxPrefab, randomPosition, Quaternion.identity,transform);
 
-            // Rastgele renk ve puan de�eri ata
+            
+
+            // Rastgele renk ve puan değeri ata
             int randomIndex = Random.Range(0, colors.Length);
             CollectibleBox collectible = box.GetComponent<CollectibleBox>();
 
