@@ -302,8 +302,11 @@ Singleton ile → Eski ScoreManager korunur → Skor: 50 devam eder ✅
 
 #### Açıklama:
 
-1. Oyun Başlangıcı:
+- Oyun Başlangıcı:
+
+```csharp
 instance = null
+```
 
 ScoreManager A oluşturuldu:
 instance = null → A'yı instance yap
@@ -313,7 +316,8 @@ ScoreManager B oluşturulmaya çalışıldı:
 instance = A (zaten var!)
 B'yi yok et → Destroy(B) ❌
 
-2. Start() - Başlangıç
+- Start() - Başlangıç
+  
 ```csharp
 void Start()
 {
